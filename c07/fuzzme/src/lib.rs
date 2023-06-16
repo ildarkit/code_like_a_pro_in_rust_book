@@ -5,7 +5,7 @@ pub fn parse_integer(s: &str) -> Option<i32> {
     // will match a string with 1-10 digits, prefixed by an option `-`
     let re = Regex::new(r"^-?\d{1,10}$").expect("parsing regex failed");
     if re.is_match(s) {
-        Some(s.parse().expect("Parsing failed"))
+        s.parse().ok()
     } else {
         None
     }
